@@ -61,6 +61,7 @@
   }
   set list(spacing: 1em)
   show list: set block(above: auto, below: auto)
+  show link: underline
 
   // Set numbering style
   set heading(
