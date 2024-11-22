@@ -1,0 +1,3 @@
+Fontname wie in Typst;Font Directory
+Latin Modern Roman;./fonts/Latin-Modern-Roman/
+Latin Modern Sans;./fonts/Latin-Modern-Sans/
