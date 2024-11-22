@@ -3,6 +3,7 @@
 
 #let conf(
   title: none,
+  subtitle: none,
   authors: (),
   language: "de",
   fach: "Fach",
@@ -73,13 +74,23 @@
 
   if title != none {
     set align(center)
-    text(title, size: 20pt, font: "Latin Modern Sans")
-  
-    v(-1em)
+    text(title, size: 20pt, font: "Latin Modern Sans", weight: "bold")
+    
+    if subtitle != none {
+      v(-2em)
+      text(subtitle, font: "Latin Modern Sans", weight: "regular")
+      v(1em)
+    } else {
+      v(-1em)
+    }
 
-    text(context [
-      *Autoren:* #{ authors.join(", ")}
-    ])
+    text({
+      if authors.len() > 1 {
+        [*Autoren:* #authors.join(", ")]
+      } else {
+        [*Autor:* #authors.at(0)]
+      }
+    })
 
     v(2em)
 

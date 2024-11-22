@@ -2,6 +2,7 @@
 #show: doc => conf(
   doc,
   title: [Title],
+  subtitle: none,
   authors: ("REI (I)", "KRE (I)"),
   fach: "FACH",
   thema: "THEMA",

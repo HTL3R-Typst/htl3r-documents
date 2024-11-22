@@ -29,7 +29,7 @@
         dy: -5pt
       )
       #set align(right + horizon)
-      HTL3R Projekthandbuch
+      *HTL3R Projekthandbuch*
     ], 
     footer: context [
       #set text(font: "Latin Modern Roman", size: 11pt)
@@ -72,7 +72,7 @@
 
   if title != none {
     v(1em)
-    text(title, size: 20pt, font: "Latin Modern Sans", fill: rgb("FF3300"))
+    text(title, size: 20pt, font: "Latin Modern Sans", fill: rgb("FF3300"), weight: "bold")
   
     v(-1em)
     line(length: 100%, stroke: 0.5pt)
