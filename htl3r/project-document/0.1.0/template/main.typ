@@ -4,7 +4,7 @@
   title: [Projekttagebuch],
   projekttitel: "Little Big Topo",
   auftraggeber: ("SDO", "KUS"),
-  auftragnehmer: ("B. Reither", "G. Vogler"),
+  auftragnehmer: ("B. Reither", "G. Vogler",),
   schuljahr: "2024/25",
   klasse: "5CN",
   inhaltsverzeichnis: false,
