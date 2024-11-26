@@ -1,5 +1,6 @@
 #import "@preview/codly:1.0.0": *
 #import "@preview/cheq:0.2.2": checklist
+#import "@preview/note-me:0.3.0": *
 
 #let conf(
   title: none,
@@ -62,6 +63,7 @@
   set list(spacing: 1em)
   show list: set block(above: auto, below: auto)
   show link: underline
+  show link: set text(fill: blue)
 
   // Set numbering style
   set heading(
@@ -110,4 +112,26 @@
   }
 
   doc
+}
+
+// Helperfunctions
+#let inc_script(path, type, title: "") = {
+  raw(
+    read(path).trim(), lang: type, block: true
+  )
+}
+
+#let img_after_item(img) = {
+    img
+    v(1em)
+  }
+
+#let infobox(body, title: "Anmerkung") = {
+  admonition(
+  icon-path: "icons/info.svg",
+  title: title,
+  color: rgb(9, 105, 218),
+  [#v(-1em)
+  #body
+  ])
 }
