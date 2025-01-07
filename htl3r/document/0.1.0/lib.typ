@@ -10,6 +10,7 @@
   fach: "Fach",
   thema: "Themengebiet",
   schuljahr: "2024/25",
+  create-outline: true,
   enumerate: true,
   doc,
 ) = {
@@ -98,15 +99,17 @@
     v(2em)
 
     set align(left)
-    outline(
-      title: [Inhaltsverzeichnis],
-      indent: 
-        if enumerate {
-          auto 
-        } else {
-          1em
-        }
-    )
+    if create-outline {
+      outline(
+        title: [Inhaltsverzeichnis],
+        indent: 
+          if enumerate {
+            auto 
+          } else {
+            1em
+          }
+      )
+    }
 
     pagebreak()
   }

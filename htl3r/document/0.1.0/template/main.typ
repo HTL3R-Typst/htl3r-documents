@@ -6,5 +6,6 @@
   authors: ("REI (I)", "KRE (I)",),
   fach: "FACH",
   thema: "THEMA",
+  create-outline: true,
   enumerate: true
 )
