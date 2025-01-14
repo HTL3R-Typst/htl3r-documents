@@ -12,6 +12,9 @@
   klasse: "5CN",
   inhaltsverzeichnis: true,
   enumerate: true,
+  versions: (
+    (version: "v1.0", datum: "14.01.2025", autor: "Bernd Reither", aenderung: "Erstellung des Dokuments"),
+  ),
   doc,
 ) = {
   set text(font: "Latin Modern Roman", size: 11pt)
@@ -71,6 +74,16 @@
       }
   )
 
+  // Format versioning
+  let version_formatted = ()
+  for version in versions {
+    version_formatted.push(text(version.at("version", default: "LEER"), size: 11pt))
+    version_formatted.push(text(version.at("datum", default: "LEER"), size: 11pt))
+    version_formatted.push(text(version.at("autor", default: "LEER"), size: 11pt))
+    version_formatted.push(text(version.at("aenderung", default: "LEER"), size: 11pt))
+  }
+
+  // Title page setup
   if title != none {
     v(1em)
     text(title, size: 20pt, font: "Latin Modern Sans", fill: rgb("FF3300"), weight: "bold")
@@ -90,6 +103,20 @@
     )
 
     v(-0.5em)
+    line(length: 100%, stroke: 0.5pt)
+    v(-2em)
+
+    table(
+      columns: (5em, 7em, 10em, 1fr),
+      stroke: none,
+      text("VERSION", size: 8pt, weight: "bold"), 
+      text("DATUM", size: 8pt, weight: "bold"), 
+      text("AUTOR/IN", size: 8pt, weight: "bold"), 
+      text("ÄNDERUNG", size: 8pt, weight: "bold"),
+      ..version_formatted
+    )
+
+    v(-2em)
     line(length: 100%, stroke: 0.5pt)
 
     v(1.5em)

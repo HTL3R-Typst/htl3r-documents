@@ -8,5 +8,8 @@
   schuljahr: "2024/25",
   klasse: "5CN",
   inhaltsverzeichnis: false,
-  enumerate: true
+  enumerate: true,
+  versions: (
+    (version: "v1.0", datum: "14.01.2025", autor: "Bernd Reither", aenderung: "Erstellung des Dokuments"),
+  )
 )
