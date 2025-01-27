@@ -70,7 +70,7 @@
   set heading(
     numbering: 
       if enumerate {
-        "1.1.1"
+        "1.1.1."
       } else {
         none
       }
@@ -117,9 +117,9 @@
 }
 
 // Helperfunctions
-#let inc_script(path, type, title: "") = {
+#let inc_script(content, type: "", title: "") = {
   raw(
-    read(path).trim(), lang: type, block: true
+    content.trim(), lang: type, block: true
   )
 }
 
