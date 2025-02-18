@@ -1,6 +1,5 @@
-#import "@preview/codly:1.0.0": *
+#import "@preview/codly:1.2.0": *
 #import "@preview/cheq:0.2.2": checklist
-#import "@preview/note-me:0.3.0": *
 
 #let conf(
   title: none,
@@ -16,7 +15,7 @@
 ) = {
   set text(font: "Latin Modern Roman", size: 11pt)
   set page(
-    paper: "a4", 
+    paper: "a4",
     margin: (top: 110pt, bottom: 70pt),
     header-ascent: -10pt,
     footer-descent: 10pt,
@@ -24,9 +23,9 @@
       #set par(justify: true, spacing: 2em, leading: 0.75em)
       #set text(font: "Latin Modern Roman", size: 11pt)
       #place(
-        left + horizon, 
-        image("HTL3RLogoRGB.png", width: 35mm), 
-        dy: -5pt
+        left + horizon,
+        image("HTL3RLogoRGB.png", width: 35mm),
+        dy: -5pt,
       )
       #set align(right + horizon)
       *#fach:* #thema \
@@ -34,7 +33,7 @@
       Rennweg 89b, 1030 Wien
       #v(-10pt)
       #line(length: 100%, stroke: 0.5pt)
-    ], 
+    ],
     footer: context [
       #set text(font: "Latin Modern Roman", size: 11pt)
       #line(length: 100%, stroke: 0.5pt)
@@ -42,10 +41,10 @@
       Version vom #datetime.today().display("[day].[month].[year]")
       #h(1fr)
       #counter(page).display(
-      "1 / 1",
-      both: true,
+        "1 / 1",
+        both: true,
       )
-    ]
+    ],
   )
   show: codly-init.with()
   show: checklist
@@ -68,18 +67,17 @@
 
   // Set numbering style
   set heading(
-    numbering: 
-      if enumerate {
-        "1.1.1."
-      } else {
-        none
-      }
+    numbering: if enumerate {
+      "1.1.1."
+    } else {
+      none
+    },
   )
 
   if title != none {
     set align(center)
     text(title, size: 20pt, font: "Latin Modern Sans", weight: "bold")
-    
+
     if subtitle != none {
       v(-2em)
       text(subtitle, font: "Latin Modern Sans", weight: "regular")
@@ -102,38 +100,19 @@
     if create-outline {
       outline(
         title: [Inhaltsverzeichnis],
-        indent: 
-          if enumerate {
-            auto 
-          } else {
-            1em
-          }
+        indent: if enumerate {
+          auto
+        } else {
+          1em
+        },
       )
       pagebreak()
     }
   }
-
   doc
 }
 
-// Helperfunctions
-#let inc_script(content, type: "", title: "") = {
-  raw(
-    content.trim(), lang: type, block: true
-  )
-}
-
-#let img_after_item(img) = {
-    img
-    v(1em)
-  }
-
-#let infobox(body, title: "Anmerkung") = {
-  admonition(
-  icon-path: "icons/info.svg",
-  title: title,
-  color: rgb(9, 105, 218),
-  [#v(-1em)
-  #body
-  ])
-}
+#import "helperfunctions.typ" as helper
+#let infobox = helper.infobox
+#let inc_script = helper.inc_script
+#let img_after_item = helper.img_after_item

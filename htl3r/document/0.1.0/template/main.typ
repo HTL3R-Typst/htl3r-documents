@@ -3,9 +3,9 @@
   doc,
   title: [Title],
   subtitle: none,
-  authors: ("REI (I)", "KRE (I)",),
+  authors: ("REI (I)", "KRE (I)"),
   fach: "FACH",
   thema: "THEMA",
   create-outline: true,
-  enumerate: true
+  enumerate: true,
 )
