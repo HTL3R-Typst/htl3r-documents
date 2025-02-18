@@ -13,13 +13,18 @@
   inhaltsverzeichnis: true,
   enumerate: true,
   versions: (
-    (version: "v1.0", datum: "14.01.2025", autor: "Bernd Reither", aenderung: "Erstellung des Dokuments"),
+    (
+      version: "v1.0",
+      datum: "14.01.2025",
+      autor: "Bernd Reither",
+      aenderung: "Erstellung des Dokuments",
+    ),
   ),
   doc,
 ) = {
   set text(font: "Latin Modern Roman", size: 11pt)
   set page(
-    paper: "a4", 
+    paper: "a4",
     margin: (top: 110pt, bottom: 70pt),
     header-ascent: -10pt,
     footer-descent: 10pt,
@@ -27,13 +32,13 @@
       #set par(justify: true, spacing: 2em, leading: 0.75em)
       #set text(font: "Latin Modern Sans", size: 13pt)
       #place(
-        left + horizon, 
-        image("HTL3RLogoRGB.png", width: 35mm), 
-        dy: -5pt
+        left + horizon,
+        image("HTL3RLogoRGB.png", width: 35mm),
+        dy: -5pt,
       )
       #set align(right + horizon)
       *HTL3R Projekthandbuch*
-    ], 
+    ],
     footer: context [
       #set text(font: "Latin Modern Roman", size: 11pt)
       #line(length: 100%, stroke: 0.5pt)
@@ -41,10 +46,10 @@
       Version vom #datetime.today().display("[day].[month].[year]")
       #h(1fr)
       #counter(page).display(
-      "1 / 1",
-      both: true,
+        "1 / 1",
+        both: true,
       )
-    ]
+    ],
   )
   show: codly-init.with()
   show: checklist
@@ -66,28 +71,41 @@
 
   // Set numbering style
   set heading(
-    numbering: 
-      if enumerate {
-        "1.1.1"
-      } else {
-        none
-      }
+    numbering: if enumerate {
+      "1.1.1"
+    } else {
+      none
+    },
   )
 
   // Format versioning
   let version_formatted = ()
   for version in versions {
-    version_formatted.push(text(version.at("version", default: "LEER"), size: 11pt))
-    version_formatted.push(text(version.at("datum", default: "LEER"), size: 11pt))
-    version_formatted.push(text(version.at("autor", default: "LEER"), size: 11pt))
-    version_formatted.push(text(version.at("aenderung", default: "LEER"), size: 11pt))
+    version_formatted.push(
+      text(version.at("version", default: "LEER"), size: 11pt),
+    )
+    version_formatted.push(
+      text(version.at("datum", default: "LEER"), size: 11pt),
+    )
+    version_formatted.push(
+      text(version.at("autor", default: "LEER"), size: 11pt),
+    )
+    version_formatted.push(
+      text(version.at("aenderung", default: "LEER"), size: 11pt),
+    )
   }
 
   // Title page setup
   if title != none {
     v(1em)
-    text(title, size: 20pt, font: "Latin Modern Sans", fill: rgb("FF3300"), weight: "bold")
-  
+    text(
+      title,
+      size: 20pt,
+      font: "Latin Modern Sans",
+      fill: rgb("FF3300"),
+      weight: "bold",
+    )
+
     v(-1em)
     line(length: 100%, stroke: 0.5pt)
 
@@ -97,8 +115,8 @@
       inset: (x: 0pt),
       column-gutter: 1em,
       [*Projekttitel:*], [#projekttitel], [], [],
-      [*Auftraggeber:*], [#{ auftraggeber.join(", ")}],[], [],
-      [*Auftragnehmer:*], [#{ auftragnehmer.join(", ")}], [], [],
+      [*Auftraggeber:*], [#{ auftraggeber.join(", ") }], [], [],
+      [*Auftragnehmer:*], [#{ auftragnehmer.join(", ") }], [], [],
       [*Schuljahr:*], [#schuljahr], [*Klasse:*], [#klasse],
     )
 
@@ -109,9 +127,9 @@
     table(
       columns: (5em, 7em, 10em, 1fr),
       stroke: none,
-      text("VERSION", size: 8pt, weight: "bold"), 
-      text("DATUM", size: 8pt, weight: "bold"), 
-      text("AUTOR/IN", size: 8pt, weight: "bold"), 
+      text("VERSION", size: 8pt, weight: "bold"),
+      text("DATUM", size: 8pt, weight: "bold"),
+      text("AUTOR/IN", size: 8pt, weight: "bold"),
       text("ÄNDERUNG", size: 8pt, weight: "bold"),
       ..version_formatted
     )
@@ -124,12 +142,11 @@
     if inhaltsverzeichnis {
       outline(
         title: [Inhaltsverzeichnis],
-        indent: 
-          if enumerate {
-            auto 
-          } else {
-            1em
-          }
+        indent: if enumerate {
+          auto
+        } else {
+          1em
+        },
       )
       pagebreak()
     }
