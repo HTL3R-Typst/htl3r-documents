@@ -47,7 +47,7 @@
     ],
   )
   show: codly-init.with()
-  show: it => checklist(show-list-set-block: (above: auto, below: auto), it)
+  show: checklist.with(show-list-set-block: (above: auto, below: auto))
 
   // General page settings
   set align(left)
@@ -60,7 +60,7 @@
     caption
     v(1em)
   }
-  set list(spacing: 1em)
+  set list(spacing: auto)
   set list(tight: false)
   show list: set block(above: auto, below: auto)
   show link: underline
