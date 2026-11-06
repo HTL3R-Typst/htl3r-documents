@@ -1,4 +1,4 @@
-#import "@preview/codly:1.2.0": *
+#import "@preview/codly:1.3.0": *
 #import "@preview/cheq:0.2.2": checklist
 
 #let conf(
